@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deraye Store</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header>
+        <!-- Add this inside your header -->
+<button class="admin-button" onclick="location.href='/admin.html'">Admin Panel</button>
+        <button class="back-button" onclick="location.href='index.html'">Back</button>
+        <h1>Deraye Store</h1>
+        <div class="search-sort">
+            <input type="text" id="search-bar" placeholder="Search products..." oninput="filterProducts()">
+            <select id="sort-by" onchange="sortProducts()">
+                <option value="name-asc">Name (A-Z)</option>
+                <option value="name-desc">Name (Z-A)</option>
+                <option value="price-asc">Price (Low to High)</option>
+                <option value="price-desc">Price (High to Low)</option>
+                <option value="rating-asc">Rating (Low to High)</option>
+                <option value="rating-desc">Rating (High to Low)</option>
+            </select>
+            <button id="view-toggle" onclick="toggleView()">Switch to List View</button>
+            <button id="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Product Categories -->
+        <!-- Change this section -->
+<div class="categories">
+    <button onclick="filterByCategory('all')">All</button>
+    <button onclick="filterByCategory('drinks')">Drinks</button>
+    <button onclick="filterByCategory('cakes')">Cakes</button>
+    <button onclick="filterByCategory('chips')">Chips</button>
+    <button onclick="filterByCategory('gums-candy')">Gums/Candy</button>
+    <button onclick="filterByCategory('others')">Others</button>
+</div>
+
+        <!-- Product List -->
+        <div class="product-list grid-view" id="product-list"></div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <button id="prev-page" onclick="prevPage()">Previous</button>
+            <span id="page-indicator">Page 1</span>
+            <button id="next-page" onclick="nextPage()">Next</button>
+        </div>
+
+        <!-- Cart Preview -->
+        <div class="preview">
+            <h2>Cart Preview</h2>
+            <ul id="cart-list"></ul>
+            <div class="total-price" id="total-price">Total Price: 0</div>
+            <div class="actions">
+                <button onclick="sendWhatsApp()">Send via WhatsApp</button>
+                <button onclick="clearCart()">Clear Cart</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 Deraye Store. All rights reserved.</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Go to Top/Bottom Button -->
+    <button id="go-to-top-bottom-btn" title="Go to Bottom">↓</button>
+
+    <!-- Product Details Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times; Close</span>
+            <img id="modal-image" src="" alt="Product Image">
+            <h2 id="modal-name"></h2>
+            <p id="modal-description"></p>
+            <div class="social-sharing">
+               
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
